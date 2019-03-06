@@ -1,0 +1,69 @@
+
+a{
+  color: inherit;
+}
+a:hover{
+  text-decoration: none;
+  color: #e67300;
+}
+a.header-title:hover {
+  color: white;
+}
+
+label{
+  font-weight: bold;
+}
+.header{
+  background-color: #e67300;
+  padding: 7px;
+}
+
+.header-title{
+  font-family: 'Pacifico', cursive;
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+}
+
+.banner{
+  background-image: url('../assets/search_img.png');
+  background-repeat: repeat-x;
+  background-size: 110% auto; 
+  height: 300px;
+  width: 100%; 
+  background-color: orange; 
+}
+
+.vcenter{
+  position: relative;
+  top: 40%;
+  transform: translateY(-40%);
+}
+
+@media(max-width: 900px){
+  .banner{
+    background-size: 800px auto;
+  }
+
+  .vcenter{
+    top: 25%;
+    transform: translateY(-25%);
+  }
+}
+
+.section-name{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.no-bullets{
+  list-style-type: none;
+}
+
+.greybox{
+  background-color: #EEEEEE;
+}
+
+.listing-card{
+  background-color: orange;
+}

@@ -1,0 +1,71 @@
+<div class="container-fluid" *ngIf = "listing">
+  <div class="row">
+    <div class="col-sm-2">
+      <div [ngSwitch]="listing.category">
+        <img src="assets/store.jpg" *ngSwitchCase="'SHOP'" class="business-list-img"/>
+        <img src="assets/sale.jpg" *ngSwitchCase="'SALE'" class="business-list-img"/>
+        <img src="assets/service.jpg" *ngSwitchCase="'SERVICE'" class="business-list-img"/>
+        <img src="assets/null.jpg" *ngSwitchDefault  class="business-list-img"/>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <form>
+        <div class="form-group">
+            <p class="section-name">Details</p>
+            <label for="listingName">Name:</label>
+            <input type="text"class="form-control form-control-sm" name="listingName"  [(ngModel)]= "listing.name"/>
+            <label for="category">Category:</label>
+            <select class="form-control" name="category" [(ngModel)]="listing.category">
+              <option *ngFor="let cat of categories" class="form-control-sm">{{cat}}</option>
+            </select>
+            <label for="description">Description:</label>
+            <textarea name="description" rows="8" cols="80" class="form-control form-control-sm" [(ngModel)]="listing.description" ></textarea>
+            <div id="addressBlock">
+              <br/>
+              <p class="section-name">Address</p>
+              <label for="addressLine1">Address Line 1:</label>
+              <input type="text" name="addressLine1" class="form-control form-control-sm" [(ngModel)]="listing.address.addressLine1">
+              <label for="city">City:</label>
+              <input type="text" name="city" class="form-control form-control-sm" [(ngModel)]="listing.address.city">
+              <label for="postalCode">Postal Code:</label>
+              <input type="text" name="postalCode" class="form-control form-control-sm" [(ngModel)]="listing.address.postalCode">
+              <label for="country">Country:</label>
+              <input type="text" name="country" class="form-control form-control-sm" [(ngModel)]="listing.address.country">
+            </div>
+
+            <div id="productsBlock">
+              <br/>
+              <p class="section-name">Products</p>
+              <ul style="list-style-type:none;">
+                <li *ngFor="let product of listing.products"><a (click)="editProduct(product)">{{product.name}}</a>
+                </li>
+              </ul>
+                <div *ngIf="productInProgress">
+                  <input type="hidden" name="product-id" [(ngModel)]="productInProgress.id">
+                  <label for="product-name">Name:</label>
+                  <input type="text" name="product-name" class="form-control form-control-sm" [(ngModel)]="productInProgress.name">
+                  <label for="product-desc">Description:</label>
+                  <textarea name="product-desc" rows="8" cols="80" class="form-control" [(ngModel)]="productInProgress.description"></textarea>
+                  <label for="product-name">Price:</label>
+                  <input type="text" name="product-price" class="form-control form-control-sm" [(ngModel)]="productInProgress.price">
+                  <button type="button" name="save-product" (click)="saveProduct()">Save</button>
+                  <button type="button" name="delete-product" (click)="deleteProduct()">Delete</button>
+                  <button type="button" name="cancel-product" (click)="saveProduct()">Cancel</button>
+                </div>
+                <button type="button" name="add-product" (click)="addProduct()" *ngIf="!productInProgress">Add Product</button>
+            </div>
+
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+<div class="row">
+  <div class="col-sm-2">
+  </div>
+  <div>
+    <button type="button" name="button" (click)="update()">Save</button>
+  </div>
+
+</div>

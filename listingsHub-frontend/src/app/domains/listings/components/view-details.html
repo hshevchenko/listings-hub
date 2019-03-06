@@ -1,0 +1,31 @@
+<div class="container-fluid" *ngIf = "listing">
+  <div class="row">
+    <div class="col-sm-2">
+      <div [ngSwitch]="listing.category">
+        <img src="assets/store.jpg" *ngSwitchCase="'SHOP'" class="business-list-img"/>
+        <img src="assets/sale.jpg" *ngSwitchCase="'SALE'" class="business-list-img"/>
+        <img src="assets/service.jpg" *ngSwitchCase="'SERVICE'" class="business-list-img"/>
+        <img src="assets/null.jpg" *ngSwitchDefault  class="business-list-img"/>
+      </div>
+    </div>
+    <div >
+        <h6>{{listing.name}}</h6>
+        <p>{{listing.category}}</p>
+        <p>{{listing.address.addressLine1}},{{listing.address.city}} </p>
+        <p>{{listing.description}}</p>
+        <br/>
+        <p class="section-name">Products</p>
+        <ul class="no-bullets">
+          <li *ngFor="let product of listing.products">{{product.name}}</li>
+        </ul>
+      
+    </div>
+</div>
+<div class="row">
+  <div class="col-sm-2">
+  </div>
+  <div>
+    <button type="button" name="edit-button" routerLink="/listing-edit/{{listing.id}}">Edit</button>
+  </div>
+
+</div>

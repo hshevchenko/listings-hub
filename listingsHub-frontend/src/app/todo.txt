@@ -1,0 +1,14 @@
+1. Listing details view - show address formatted
+2. Add pictures to listings and products
+3. Listing details view - list all products with minimum Details
+4. Refresh listings after add/Remove actions
+5. add security and roles, users must register and login to modify listings
+6. add ratings and reviews section to view listings page
+7. add contact information and hours of operation section to view/edit pages
+8. add id field to product and populate with unique id for each product
+9. use Google map API to show all listings on the google map
+10. add payment system to pay for products online
+11. add localization and French language support
+12. implement search filters and sorting criteria
+13. add pagination to show found listings
+14. use angular material to build UI components

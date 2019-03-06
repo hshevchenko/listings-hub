@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">ListingsHub</a>
+  <button class="navbar-toggler" type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!--<li class="nav-item">
+        <a class="nav-link" routerLink="/search" routerLinkActive="active">Search</a>
+      </li>-->
+    </ul>
+    <small>
+      <ul class="navbar-nav">
+        <li><a class="nav-link"  *ngIf="authService.isAuthenticated()" routerLink="/account/listings" routerLinkActive="active">My Listings</a></li>  
+        <li><a class="nav-link"  *ngIf="!authService.isAuthenticated()" routerLink="/login" routerLinkActive="active">Sign In</a></li>
+        <li><a class="nav-link" *ngIf="!authService.isAuthenticated()" routerLink="/register" routerLinkActive="active">Register</a></li>
+        <li><a class="nav-link" style="cursor:pointer" *ngIf="authService.isAuthenticated()" (click)="logout()">Sign Out</a></li>
+      </ul>
+    </small>
+  </div>
+</nav>
