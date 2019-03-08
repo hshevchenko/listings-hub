@@ -29,6 +29,13 @@ public class User {
 		this.password = password;
 	}
 	
+	public static User build(org.springframework.security.core.userdetails.User userDetails) {
+		User retVal = new User();
+		retVal.setUsername(userDetails.getUsername());
+		retVal.setPassword(userDetails.getPassword());
+		return retVal;
+	}
+	
 	
 
 }

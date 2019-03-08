@@ -1,16 +1,5 @@
-
-<div>
-  <div class="banner">
-    <form class="form-inline justify-content-center vcenter">
-      <div class="form-group">
-          <input type="search" class="form-control form-control-sm" size="50" placeholder="Name">
-          <button type="submit" name="button" class="btn btn-danger" (click)="find()">Search</button>
-        </div>
-    </form>
-  </div>
-   
-  <div *ngIf="listings">
-    <div class="row">
+<div *ngIf="listings">
+    <div class="row text-center">
         <div *ngFor="let listing of listings" >
             <app-listing-card [listing]="listing"></app-listing-card>
         </div>
@@ -19,34 +8,3 @@
         </div>
     </div>
    
-
-      <!--<div class="col-sm-1">
-        <div [ngSwitch]="listing.category">
-          <img src="assets/store.jpg" *ngSwitchCase="'SHOP'" class="business-list-img"/>
-          <img src="assets/sale.jpg" *ngSwitchCase="'SALE'" class="business-list-img"/>
-          <img src="assets/service.jpg" *ngSwitchCase="'SERVICE'" class="business-list-img"/>
-          <img src="assets/null.jpg" *ngSwitchDefault  class="business-list-img"/>
-          <img src="assets/no_img.png" />
-        </div>
-      </div>
-      <div class="col-sm">
-        <ul class="no-bullets">
-          <li><a [routerLink]="['/listing', listing.id]"><h6>{{listing.name}}</h6></a></li>
-          <li>{{listing.address.addressLine1}}</li>
-          <li>{{listing.category}}</li>
-          <button type="button" name="delete-listing" (click)="delete(listing)">Remove</button>
-        </ul>
-      </div> -->
-      
-    
-   
-  </div>
-
-  <!--<button type="button" name="add-listing-btn" ><a [routerLink]="['/listing-edit']">Add Listing</a></button>-->
-</div>
-
-
-    <!--<h2>Assets</h2>
-    <ul *ngFor="let business of businesses">
-        <li><a [routerLink]="['/search', business.id]">{{business.name}}</a></li>
-    </ul>-->

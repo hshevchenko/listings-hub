@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,7 +16,7 @@ import com.businessbook.domain.listings.model.ListingFilterCriteria;
 import com.businessbook.domain.listings.services.ListingsSearchService;
 
 
-
+//TODO add pagination
 
 @RestController
 @RequestMapping("/listings")
@@ -42,8 +43,8 @@ public class ListingsSearchRestController {
      * @param filter criteria
      * @return list with lightweight representation of listings
      */
-    @GetMapping("/search")
-    public List<Listing> searchByCriteria(@RequestBody ListingFilterCriteria criteria){
+    @PostMapping("/search")
+    public List<Listing> searchByCriteria(@RequestBody ListingFilterCriteria criteria){    	
     	return service.search(criteria);
     }
     

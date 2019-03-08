@@ -26,4 +26,5 @@ export class Product{
 export class ListingsFilterCriteria{
   name: string;
   category: string;
+  address: Address;
 }

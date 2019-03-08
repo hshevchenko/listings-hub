@@ -5,7 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ListingSearchCriteriaComponent } from './domains/listings/components/search';
+import { ListingsHomeComponent } from './domains/listings/components/home';
 import { ListingDetailsViewComponent } from './domains/listings/components/view-details';
 import { ListingDetailsEditComponent } from './domains/listings/components/edit-details';
 import {HeaderComponent} from './domains/common/components/header';
@@ -18,17 +18,19 @@ import {UsersAuthenticationService} from './domains/users/users.service';
 import {BasicAuthenticationInterceptor} from './domains/platform/security/basic.auth.interceptor';
 import { ListingsMaintenanceService } from './domains/listings/services/listings.maintenance.service';
 import { ListingCardComponent } from './domains/listings/components/listing.card';
+import { ListingsSearchComponent } from './domains/listings/components/search';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListingSearchCriteriaComponent,
+    ListingsHomeComponent,
     ListingDetailsViewComponent,
     ListingDetailsEditComponent,
     HeaderComponent,
     UsersLoginComponent,
     AccountDetailsComponent,
-    ListingCardComponent
+    ListingCardComponent,
+    ListingsSearchComponent
   ],
   imports: [
     BrowserModule,

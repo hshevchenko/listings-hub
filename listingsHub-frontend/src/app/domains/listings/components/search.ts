@@ -1,31 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import {Listing, ListingsFilterCriteria} from '../model/listings';
-import {ListingsSearchService} from '../services/listings.search.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { ListingsFilterCriteria } from '../model/listings';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-business-search-criteria',
-  templateUrl: './search.html',
-  styleUrls: ['../../../app.component.css']
+    selector:'listings-search-results',
+    templateUrl: 'search.html',
+    styleUrls: ['../../../app.component.css']
 })
-export class ListingSearchCriteriaComponent implements OnInit {
-  private listings: Listing[];
-  searchCriteria: ListingsFilterCriteria;
-  testMessage: string;
+export class ListingsSearchComponent implements OnInit{
+    @Input() filter: ListingsFilterCriteria;
 
-  constructor(private service: ListingsSearchService) { }
+    constructor(private http: HttpClient){
+    }
+    
+    ngOnInit(){
+        
+    }
 
-  ngOnInit() {    
-  }
+    search(){
+        //this.service.search(this.searchCriteria).subscribe(response => this.listings = response);
+        this.service.search(this.filter).subscribe(response => {
+          this.listings = response as Listing[];
+        });
+      }
 
-  find(){
-    //this.service.search(this.searchCriteria).subscribe(response => this.listings = response);
-    this.service.search().subscribe(response => {
-      this.listings = response as Listing[];
-    });
-  }
-
-  /*delete(listing){
-    this.service.deleteListing(listing);
-    this.find();
-  }*/
 }

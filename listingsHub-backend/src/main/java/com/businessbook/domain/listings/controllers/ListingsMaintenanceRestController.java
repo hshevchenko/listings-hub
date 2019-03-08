@@ -1,8 +1,11 @@
 package com.businessbook.domain.listings.controllers;
 
 import java.util.Arrays;
+import java.util.List;
 
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -10,14 +13,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.businessbook.domain.common.AppContext;
 import com.businessbook.domain.listings.model.Listing;
+import com.businessbook.domain.listings.model.ListingFilterCriteria;
 import com.businessbook.domain.listings.model.PaymentMethod;
 import com.businessbook.domain.listings.model.Product;
 import com.businessbook.domain.listings.services.ListingsMaintenanceService;
 import com.businessbook.domain.listings.services.ListingsSearchService;
 
 @RestController
-@RequestMapping("/listings")
+@RequestMapping("/account/listings")
 public class ListingsMaintenanceRestController {	
 	private ListingsMaintenanceService service;
 	private ListingsSearchService searchService;	
@@ -28,6 +33,11 @@ public class ListingsMaintenanceRestController {
 		this.searchService = searchService;
 	}
 	
+	@GetMapping("")
+	public List<Listing> getListingsForAccount(){
+		System.out.println(AppContext.getUser());
+		return searchService.search(new ListingFilterCriteria());
+	}
 	/**
      * Add new listing
      * @param newListing

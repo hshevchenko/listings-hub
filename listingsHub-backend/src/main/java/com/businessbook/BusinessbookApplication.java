@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.businessbook.platform.logging.LoggingHttpRequestInterceptor;
+import com.businessbook.platform.security.BasicAuthenticationHttpInterceptor;
 
 //TODO replace deprecated WebMvcConfigurerAdapter
 @SpringBootApplication
@@ -22,6 +23,7 @@ public class BusinessbookApplication extends WebMvcConfigurerAdapter {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {		
 		registry.addInterceptor(new LoggingHttpRequestInterceptor());
+		registry.addInterceptor(new BasicAuthenticationHttpInterceptor());
 	}
 
 	@Override

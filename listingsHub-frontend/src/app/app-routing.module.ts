@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListingSearchCriteriaComponent } from './domains/listings/components/search';
+import { ListingsHomeComponent } from './domains/listings/components/home';
 import { ListingDetailsViewComponent } from './domains/listings/components/view-details';
 import { ListingDetailsEditComponent } from './domains/listings/components/edit-details';
 import {UsersLoginComponent } from './domains/users/components/login';
@@ -9,10 +9,10 @@ import { AccountDetailsComponent } from './domains/users/components/account-deta
 
 
 
-const routes: Routes = [
-  {path: '', redirectTo:'search', pathMatch: 'full'},
+const routes: Routes = [ 
+  {path: '', component: ListingsHomeComponent},
   {path: 'login', component: UsersLoginComponent},
-  {path: 'search', component: ListingSearchCriteriaComponent},
+  
 
   {path: 'account/details', component: AccountDetailsComponent, canActivate: [AuthenticationGuard]},
 

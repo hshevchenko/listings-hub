@@ -13,8 +13,8 @@ export class ListingsSearchService{
     constructor(private http: HttpClient){
     }
 
-    search(){
-      return this.http.get(this.baseUri + '/all');
+    search(criteria: ListingsFilterCriteria){
+      return this.http.post(`${this.baseUri}/search`, criteria, this.httpOptions);
     }
 
     getListings(): Promise<Array<Listing>>{
@@ -28,16 +28,9 @@ export class ListingsSearchService{
     getListing(id): Observable<Listing>{
       const url = this.baseUri + '/' +id;
       return this.http.get<Listing>(url);
-    }
-
-    
+    }    
 
     getCategories(){
       return this.http.get(this.baseUri + '/categories');
-    }
-
-    deleteListing(listing: Listing){
-      const url = this.baseUri + '/' +listing.id;
-      this.http.delete(url).toPromise().catch(AppContext.getErrorHandler().handleError);
-    }    
+    }      
 }

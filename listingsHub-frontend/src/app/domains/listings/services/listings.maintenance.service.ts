@@ -27,4 +27,8 @@ export class ListingsMaintenanceService{
         this.http.post(url, product, this.httpOptions).toPromise().catch(AppContext.getErrorHandler().handleError);
         }
 
+        deleteListing(listing: Listing){
+            const url = this.baseUri + '/' +listing.id;
+            this.http.delete(url).toPromise().catch(AppContext.getErrorHandler().handleError);
+          }  
 }

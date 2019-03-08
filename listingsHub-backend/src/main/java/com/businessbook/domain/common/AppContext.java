@@ -13,8 +13,8 @@ public class AppContext {
 	 * Get authenticated app user from context
 	 * @return
 	 */
-	public static User getUser() {
-		return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	public static User getUser() {		
+		return User.build(getUserDetailsFromContext()) ;
 	}
 	
 	/**
@@ -23,5 +23,9 @@ public class AppContext {
 	 */
 	public static Log log() {
 		return log;
+	}
+	
+	private static org.springframework.security.core.userdetails.User getUserDetailsFromContext() {
+		return (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	}
 }
